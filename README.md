@@ -74,7 +74,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Esse projeto foi utilizou das seguintes lib:
 
 - react-dom
-- framer-motion
+- react-icons
 - tmdb
 
 ### ⚖ Direitos
