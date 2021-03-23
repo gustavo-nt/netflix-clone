@@ -1,5 +1,5 @@
 <h4 align="center">
-  <img src="https://github.com/gustavo-nt/move.it/blob/master/public/logo-full.svg" alt="logo" height="65"/>
+  <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/logo.png" alt="logo" height="65"/>
 </h4>
 
 <h1 align="center">
@@ -40,7 +40,7 @@
 
 ### 💻 Projeto
 
-UI Clone do servicço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database. Esse Projeto foi desenvolvido durante a live ministrada pelo professor Boenick Lacerda. 
+UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database. Esse Projeto foi desenvolvido durante a live ministrada pelo professor Boenick Lacerda. 
 
 ### ✅ Demonstração
 <img src="https://github.com/gustavo-nt/move.it/blob/master/public/moveit.png" />
@@ -80,6 +80,10 @@ Esse projeto foi utilizou das seguintes lib:
 - react-dom
 - framer-motion
 - tmdb
+
+### ⚖ Direitos
+
+Todos direitos são reservados a Netflix e ao The Movie Database.
 
 ### 📝 Licença
 
