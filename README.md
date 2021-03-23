@@ -3,10 +3,10 @@
 </h4>
 
 <h1 align="center">
-    🚀 NLW 4
+    🚀 UI Clone
 </h1>
 
-<p align="center">Aplicação Next Level Week 4ª Edição</p>
+<p align="center">Aplicação UI Clone Netflix</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/react%20version-16.8.0-informational"/>
@@ -28,15 +28,10 @@
 
 ### 📎 Features 
 
-- [x] Cronômetro Pomodoro
-- [x] Desafios disponíveis ao final do cronômetro
-- [x] Notificação disponível ao final do cronômetro
-- [x] Ao concluir o desafio, ganhe uma quantidade pré-determinada de xp
-- [x] Evolua de level conforme progrida
-- [x] Tela de login com usuário do GitHub
-- [x] Animações com framer-motion
-- [x] Tela de últimos desafios concluídos
-- [x] Menu Sidebar
+- [x] Filme Destaque
+- [x] Filmes Originais Netflix
+- [x] Filmes divididos em categorias: romance, ação, etc
+- [x] Setas de rolagem da lista
 
 ### 💻 Projeto
 
