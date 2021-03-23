@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+<h4 align="center">
+  <img src="https://github.com/gustavo-nt/move.it/blob/master/public/logo-full.svg" alt="logo" height="65"/>
+</h4>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    🚀 NLW 4
+</h1>
 
-## Available Scripts
+<p align="center">Aplicação Next Level Week 4ª Edição</p>
 
-In the project directory, you can run:
+<p align="center">
+  <img src="https://img.shields.io/badge/react%20version-16.8.0-informational"/>
+  <img src="https://img.shields.io/badge/next%20version-latest-important" />
+  <img src="https://img.shields.io/badge/last%20commit-february-blue" />
+  <img src="https://img.shields.io/badge/license-MIT-success"/>
+</p>
 
-### `yarn start`
+<p align="center">
+  <a href="#-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-pré-requisitos">Pré-Requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Lincença</a>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3 align="center"> 
+🚧  Finalizado  🚧
+</h3>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 📎 Features 
 
-### `yarn test`
+- [x] Cronômetro Pomodoro
+- [x] Desafios disponíveis ao final do cronômetro
+- [x] Notificação disponível ao final do cronômetro
+- [x] Ao concluir o desafio, ganhe uma quantidade pré-determinada de xp
+- [x] Evolua de level conforme progrida
+- [x] Tela de login com usuário do GitHub
+- [x] Animações com framer-motion
+- [x] Tela de últimos desafios concluídos
+- [x] Menu Sidebar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 💻 Projeto
 
-### `yarn build`
+UI Clone do servicço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database. Esse Projeto foi desenvolvido durante a live ministrada pelo professor Boenick Lacerda. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ✅ Demonstração
+<img src="https://github.com/gustavo-nt/move.it/blob/master/public/moveit.png" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ⚙ Pré-requisitos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e/ou [Yarn](https://yarnpkg.com/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### `yarn eject`
+### 📗 Rodando a Aplicação (web)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Clone este repositório
+$ git clone https://github.com/gustavo-nt/netflix-clone
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Instale as dependências
+$ yarn ou npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Execute a aplicação
+$ yarn ou npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🚀 Tecnologias
 
-## Learn More
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React.js
+- Javascript
+- Node.Js
+- CSS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 📕 Bibliotecas
 
-### Code Splitting
+Esse projeto foi utilizou das seguintes lib:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- react-dom
+- framer-motion
+- tmdb
 
-### Analyzing the Bundle Size
+### 📝 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Esse projeto está sob a licença MIT.
 
-### Making a Progressive Web App
+<hr/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feito por Gustavo Teixeira
