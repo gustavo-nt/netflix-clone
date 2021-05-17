@@ -41,8 +41,8 @@ UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The
 
 ### ✅ Demonstração
 <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/github/featured_movie.png" />
-<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/github/movie_rows.png" />
 <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/github/preview_movie.png" />
+<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/github/movie_rows.png" />
 
 ### ⚙ Pré-requisitos
 
