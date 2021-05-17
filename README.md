@@ -40,8 +40,9 @@
 UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database. Esse Projeto foi desenvolvido durante a live ministrada pelo professor Boenick Lacerda. 
 
 ### ✅ Demonstração
-<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/featured-movie.png" />
-<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/list-movies.png" />
+<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/featured_movie.png" />
+<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/movie_rows.png" />
+<img src="https://github.com/gustavo-nt/netflix-clone/blob/master/src/assets/preview_movie.png" />
 
 ### ⚙ Pré-requisitos
 
