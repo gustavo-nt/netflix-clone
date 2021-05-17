@@ -52,7 +52,6 @@
     text-overflow: ellipsis;
     display: block;
     display: -webkit-box;
-
 }
 
 .featuredButtons {
@@ -63,10 +62,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.featuredButton span {
-    margin-left: 5px;
+    span {
+        margin-left: 5px;
+    }
 }
 
 .featuredWatchButton,
@@ -80,11 +79,10 @@
     margin-right: 10px;
     opacity: 1;
     transition: all ease 0.2s;
-}
 
-.featuredWatchButton:hover,
-.featuredMyListButton:hover {
-    opacity: 0.7;
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .featuredWatchButton {

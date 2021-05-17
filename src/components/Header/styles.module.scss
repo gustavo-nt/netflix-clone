@@ -1,0 +1,129 @@
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background: transparent;
+    transition: all ease 0.5s;
+
+    &.black {
+        background: #141414;
+    }
+
+    .headerMenu {
+        display: flex;
+        align-items: center;
+
+        .headerLogo {
+            height: 25px;
+            cursor: pointer;
+    
+            img {
+                height: 100%;
+            }
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+            font-size: 15px;
+
+            li {
+                margin: 0 10px;
+                transition: all .2s ease;
+                cursor: pointer;
+                list-style: none;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            :first-child {
+                display: none;
+            }
+        }
+    }
+
+    .headerContainerUser {
+        display: flex;
+        align-items: center;
+
+        .headerIcons {
+            color: white;
+            margin-top: 5px;
+
+            svg {
+                margin: 0 10px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            :first-child {
+                margin-left: 0;
+            }
+        }
+
+        .headerUser {
+            height: 35px;
+            margin-left: 10px;
+            cursor: pointer;
+
+            img {
+                height: 100%;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 725px) {
+    header .headerMenu ul {
+        margin-left: 15px;
+
+        li {
+            display: none;
+        }
+
+        :first-child {
+            display: flex;
+            align-items: center;
+    
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 5px 0 5px;
+                border-color: #fff transparent transparent transparent;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 455px) {
+    header .headerContainerUser .headerIcons svg {
+        margin: 0 7px;
+    }
+}
+
+@media (max-width: 420px) {
+    header .headerContainerUser .headerIcons {
+        svg {
+            display: none;
+        }
+
+        :first-child {
+            display: block;
+        }
+    }
+}

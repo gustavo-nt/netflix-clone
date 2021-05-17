@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import styles from '../MovieRow/styles.module.css';
+import styles from './styles.module.scss';
+import { AiOutlinePicture } from 'react-icons/ai';
+import { HiChevronRight } from 'react-icons/hi';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-export default ({title, items}) => {
+export default ({title, items, onPreview}) => {
     const [scrollX, setScrollX] = useState(0);
 
     const handleLeftArrow = () => {
@@ -24,7 +26,13 @@ export default ({title, items}) => {
 
     return (
         <div className={styles.movieRow}>
-            <h2>{title}</h2>
+            <div className={styles.movieRowTitle}>
+                <h2>{title}</h2>
+                <div className={styles.movieRowMore}>
+                    <HiChevronRight />
+                    <span>Ver tudo</span>
+                </div>
+            </div>
             <div className={styles.movieRowLeft} onClick={handleLeftArrow}>
                 <FiChevronLeft style={{fontSize: 50}}/>
             </div>
@@ -37,8 +45,19 @@ export default ({title, items}) => {
                     width: items.results.length * 200
                 }}>
                     {items.results.length > 0 && items.results.map((item, key) => (
-                        <div key={key} className={styles.movieRowItem}>
-                            <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title}/>
+                        <div key={key} className={styles.movieRowItem} onClick={() => onPreview(item)}>
+                            { 
+                                item.poster_path != null ? (
+                                    <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title}/>
+                                ) : (
+                                    <div className={styles.movieRowItemError}>
+                                        <div>
+                                            <p>{item.original_title}</p>
+                                            <AiOutlinePicture />
+                                        </div>
+                                    </div>
+                                )
+                            }
                         </div>
                     ))}
                 </div>

@@ -1,15 +1,9 @@
 import React from 'react';
 import { BsPlayFill, BsPlus } from 'react-icons/bs';
-import styles from '../FeaturedMovie/styles.module.css';
+import { formatFullYear, formatGenres } from '../../utils/format';
+import styles from './styles.module.scss';
 
-export default ({title, item}) => {
-    let firstDate = new Date(item.first_air_date);
-    let genres = [];
-
-    for (let i in item.genres) {
-        genres.push(item.genres[i].name);
-    }
-
+export default ({item}) => {
     return (
         <div>
             <section className={styles.featured} style= {{
@@ -24,10 +18,10 @@ export default ({title, item}) => {
                         </div>
                         <div className={styles.featuredInfo}>
                             <div className={styles.featuredPoints}>
-                                {item.vote_average} pontos
+                                {item.vote_average * 10}% relevante
                             </div>
                             <div className={styles.featuredYear}>
-                                {firstDate.getFullYear()}
+                                {formatFullYear(item.first_air_date)}
                             </div>
                             <div className={styles.featuredSeasons}>
                                 {item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}
@@ -51,7 +45,7 @@ export default ({title, item}) => {
                             </a>
                         </div>
                         <div className={styles.featuredGenres}>
-                            <strong>Gêneros:</strong> {genres.join(', ')}
+                            <strong>Gêneros:</strong> {formatGenres(item.genres).join(', ')}
                         </div>
                     </div>
                 </div>

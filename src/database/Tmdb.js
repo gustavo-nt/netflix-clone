@@ -28,7 +28,7 @@ export default {
                 items: await basicFecth(`/movie/top_rated?&language=${API_LANGUAGE}&api_key=${API_KEY}`)
             },
             {
-                slug: 'Action',
+                slug: 'action',
                 title: 'Ação',
                 items: await basicFecth(`/discover/movie?with_genres=28&language=${API_LANGUAGE}&api_key=${API_KEY}`)
             },

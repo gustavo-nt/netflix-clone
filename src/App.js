@@ -1,15 +1,20 @@
 import { React, useEffect, useState } from 'react';
-import './styles/App.css'
 import Tmdb from './database/Tmdb';
-import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
+import StartNetflix from './components/StartNetflix';
+import Loading from './components/Loading';
+import './styles/App.scss';
+import Movies from './components/Movies';
+import Footer from './components/Footer';
 
 export default () => {
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeatureData] = useState(null);
-  const [blackHeader, setBlackHeader] = useState(false)
-
+  const [blackHeader, setBlackHeader] = useState(false);
+  const [startNetflix, setStartNetflix] = useState(false);
+  const [releasedMovies, setReleasedMovies] = useState(false);
+ 
   useEffect(() => {
     const loadAll = async () => {
       let list = await Tmdb.getHomeList();
@@ -20,6 +25,16 @@ export default () => {
       let chosen = originals[0].items.results[randomChosen];
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
       setFeatureData(chosenInfo);
+
+      // Set Loader Start Netflix
+      if(list.length > 0) {
+        setStartNetflix(true);
+    
+        setTimeout(function() {
+          setStartNetflix(false); 
+          setReleasedMovies(true); 
+        }, 4000);
+      }
     }
 
     loadAll();
@@ -38,29 +53,37 @@ export default () => {
     return () => {
       window.removeEventListener('scroll', scrollListener);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="page">
-      <Header black={blackHeader}/>
+      {releasedMovies &&
+        <>
+          <Header black={blackHeader}/>
 
-      {featuredData &&
-        <FeaturedMovie item={featuredData}/>
+          {featuredData &&
+            <FeaturedMovie item={featuredData}/>
+          }
+
+          <section className="lists">
+            <Movies items={movieList}/>
+          </section>
+
+
+          {/* Copyright© Netflix Brasil */}
+          <Footer />
+        </>
       }
 
-      <section className="lists">
-        {movieList.map((item, key) => (
-          <MovieRow key={key} title={item.title} items={item.items} />
-        ))}
-      </section>
-
-      <footer>
-        Copyright© Netflix Brasil
-      </footer>
+      {startNetflix && 
+        <div className="loading"> 
+          <StartNetflix />
+        </div> 
+      }    
 
       {movieList.length <= 0 && 
         <div className="loading">
-          <img src="https://media.filmelier.com/news/br/2020/03/netflix-loading.gif" alt="Loading"/>
+          <Loading />
         </div>
       }
     </div>
