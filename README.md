@@ -32,6 +32,8 @@
 - [x] Filmes Originais Netflix
 - [x] Filmes divididos em categorias: romance, ação, etc
 - [x] Setas de rolagem da lista
+- [x] Preview do título selecionado
+- [x] Recomendações de filmes/séries
 
 ### 💻 Projeto
 
@@ -67,15 +69,15 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - React.js
 - Javascript
 - Node.Js
-- CSS
 
 ### 📕 Bibliotecas
 
-Esse projeto foi utilizou das seguintes lib:
+Esse projeto foi utilizou das seguintes lib e/ou pré-processadores:
 
 - react-dom
 - react-icons
 - tmdb
+- sass
 
 ### ⚖ Direitos
 
