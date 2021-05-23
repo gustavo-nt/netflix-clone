@@ -6,7 +6,7 @@ import { RiFacebookBoxFill } from 'react-icons/ri';
 
 export default () => {
     return (
-        <footer>
+        <footer className={styles.footer}>
             <div className={styles.containerFooter}>
                 <div className={styles.icons}>
                     <RiFacebookBoxFill />

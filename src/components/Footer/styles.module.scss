@@ -1,4 +1,4 @@
-footer {
+.footer {
     max-width: 980px;
     margin: 25px auto;
     padding: 0 30px;
@@ -64,7 +64,7 @@ footer {
 }
 
 @media (max-width: 710px) {
-    footer {
+    .footer {
         font-size: 12px;
     }
 

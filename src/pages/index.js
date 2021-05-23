@@ -1,14 +1,14 @@
 import { React, useEffect, useState } from 'react';
-import Tmdb from './database/Tmdb';
-import FeaturedMovie from './components/FeaturedMovie';
-import Header from './components/Header';
-import StartNetflix from './components/StartNetflix';
-import Loading from './components/Loading';
-import './styles/App.scss';
-import Movies from './components/Movies';
-import Footer from './components/Footer';
+import Tmdb from '../database/Tmdb';
+import FeaturedMovie from '../components/FeaturedMovie';
+import Header from '../components/Header';
+import StartNetflix from '../components/StartNetflix';
+import Loading from '../components/Loading';
+import Movies from '../components/Movies';
+import Footer from '../components/Footer';
+import Head from 'next/head';
 
-export default () => {
+export default function Home() {
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeatureData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
@@ -57,6 +57,11 @@ export default () => {
 
   return (
     <div className="page">
+      <Head>
+        <title>Netflix Brasil - assistir a séries online, assistir a filmes online</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       {releasedMovies &&
         <>
           <Header black={blackHeader}/>
@@ -69,8 +74,6 @@ export default () => {
             <Movies items={movieList}/>
           </section>
 
-
-          {/* Copyright© Netflix Brasil */}
           <Footer />
         </>
       }

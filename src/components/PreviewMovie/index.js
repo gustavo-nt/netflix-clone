@@ -3,10 +3,10 @@ import styles from './styles.module.scss';
 import { BsPlayFill, BsPlus } from 'react-icons/bs';
 import { BiDislike, BiLike } from 'react-icons/bi';
 import { CgClose, CgChevronDoubleRight } from "react-icons/cg";
-import { ReactComponent as Player } from '../../assets/player.svg';
-import { ReactComponent as SoundOn } from '../../assets/sound-on.svg';
-import { ReactComponent as SoundOff } from '../../assets/sound-off.svg';
-import BackError from '../../assets/error-back.png';
+import Player from '../../../public/player.svg';
+import SoundOn from '../../../public/sound-on.svg';
+import SoundOff from '../../../public/sound-off.svg';
+import BackError from '../../../public/error-back.png';
 import { formatTime, formatGenres, formatComanies, formatFullYear, formatStatus } from '../../utils/format';
 import Loading from '../Loading';
 
@@ -48,13 +48,8 @@ export default ({item}) => {
                                 { 
                                     item.backdrop_path != null ? (
                                         <>
-                                            {loadedMain ? null : (
-                                                <div
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '400px'
-                                                    }}
-                                                >
+                                            {loadedMain ? null : ( 
+                                                <div className={styles.onLoad}>
                                                     <Loading 
                                                         style={{
                                                             top: '33%'
@@ -246,6 +241,7 @@ export default ({item}) => {
                                                         </div>
                                                         <div className={styles.previewMovieTrackPlayer}>
                                                             <Player />
+                                                            {/* Oi */}
                                                         </div>
                                                         <span>{formatFullYear(value.release_date)}</span>
                                                     </div>
