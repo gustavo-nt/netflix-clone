@@ -46,7 +46,7 @@ export default ({ items }) => {
     return (
         <>
             {items.map((item, key) => (
-                <MovieRow key={key} title={item.title} items={item.items} onPreview={changePreview}/>
+                <MovieRow key={key} title={item.title} items={item.items} onPreview={changePreview} />
             ))}
 
             {visibleModal && 

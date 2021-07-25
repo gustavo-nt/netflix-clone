@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { HiChevronRight } from 'react-icons/hi';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-export default ({title, items, onPreview}) => {
+export default ({ title, items, onPreview }) => {
     const [scrollX, setScrollX] = useState(0);
+    const [bullets, setBullets] = useState(new Array(9).fill(''));
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
@@ -16,9 +17,9 @@ export default ({title, items, onPreview}) => {
     }
 
     const handleRightArrow = () => {
-        let x = scrollX - Math.round(window.innerWidth / 2); 
+        let x = scrollX - Math.round(window.innerWidth / 2);
         let listW = items.results.length * 200;
-        if((window.innerWidth - listW) > x) {
+        if ((window.innerWidth - listW) > x) {
             x = (window.innerWidth - listW) - 60;
         }
         setScrollX(x);
@@ -26,18 +27,27 @@ export default ({title, items, onPreview}) => {
 
     return (
         <div className={styles.movieRow}>
-            <div className={styles.movieRowTitle}>
-                <h2>{title}</h2>
-                <div className={styles.movieRowMore}>
-                    <HiChevronRight />
-                    <span>Ver tudo</span>
+            <div className={styles.movieRowHeader}>
+                <div className={styles.movieRowTitle}>
+                    <h2>{title}</h2>
+                    <div className={styles.movieRowMore}>
+                        <HiChevronRight />
+                        <span>Ver tudo</span>
+                    </div>
+                </div>
+                <div className={styles.movieRowBullets}>
+                    <ul>
+                        {bullets.map((item, index) => (
+                            <li key={index}></li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             <div className={styles.movieRowLeft} onClick={handleLeftArrow}>
-                <FiChevronLeft style={{fontSize: 50}}/>
+                <FiChevronLeft style={{ fontSize: 50 }} />
             </div>
             <div className={styles.movieRowRight} onClick={handleRightArrow}>
-                <FiChevronRight style={{fontSize: 50}}/>
+                <FiChevronRight style={{ fontSize: 50 }} />
             </div>
             <div className={styles.movieRowListArea}>
                 <div className={styles.movieRowList} style={{
@@ -46,9 +56,9 @@ export default ({title, items, onPreview}) => {
                 }}>
                     {items.results.length > 0 && items.results.map((item, key) => (
                         <div key={key} className={styles.movieRowItem} onClick={() => onPreview(item)}>
-                            { 
+                            {
                                 item.poster_path != null ? (
-                                    <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title}/>
+                                    <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
                                 ) : (
                                     <div className={styles.movieRowItemError}>
                                         <div>

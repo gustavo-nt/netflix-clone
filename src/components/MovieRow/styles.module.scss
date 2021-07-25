@@ -13,51 +13,91 @@
         text-overflow: ellipsis;
     }
 
-    .movieRowTitle {
+    .movieRowHeader {
         display: flex;
         align-items: center;
-        max-width: fit-content;
+        justify-content: space-between;
 
-        .movieRowMore {
+        .movieRowTitle {
             display: flex;
             align-items: center;
-            position: relative;
-
-            span {
-                margin-left: 10px;
-                margin-top: 3px;
-                font-size: 12px;
-                font-weight: bold;
-                white-space: nowrap;
-                opacity: 0;
-                transition: all .2s ease;
+            max-width: fit-content;
+    
+            .movieRowMore {
+                display: flex;
+                align-items: center;
+                position: relative;
+    
+                span {
+                    margin-left: 10px;
+                    margin-top: 3px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    white-space: nowrap;
+                    opacity: 0;
+                    transition: all .2s ease;
+                }
+    
+                svg {
+                    position: absolute;
+                    font-size: 25px;
+                    cursor: pointer;
+                    margin-top: 2px;
+                    opacity: 0;
+                    transition: all .2s ease;
+                }
             }
-
-            svg {
-                position: absolute;
-                font-size: 25px;
-                cursor: pointer;
-                margin-top: 2px;
-                opacity: 0;
-                transition: all .2s ease;
+    
+            &:hover {
+                .movieRowMore svg {
+                    transform: translateX(55px);
+    
+                    ~ span {
+                        opacity: 1;  
+                        cursor: pointer;
+                    }
+                }
             }
         }
 
-        &:hover {
-            .movieRowMore svg {
-                transform: translateX(55px);
+        .movieRowBullets {
+            display: flex;
+            align-items: center;
+            margin-right: 35px;
+            opacity: 0;
+            transition: all .2s ease;
 
-                ~ span {
-                    opacity: 1;  
+            ul {
+                list-style-type: none;
+                margin-top: 4px;
+
+                li {
+                    display: inline-block;
+                    width: 14px;
+                    height: 3px;
+                    background-color: #4d4d4d;
+                    margin-left: 1px;
                     cursor: pointer;
-                }
+
+                    &:active {
+                        background-color: #aaa;
+                    }
+
+                    &:hover {
+                        background-color: #aaa;
+                    }
+                } 
             }
         }
     }
 
     &:hover {
-        .movieRowMore svg {
+        .movieRowHeader .movieRowMore svg {
             opacity: 1; 
+        }
+
+        .movieRowHeader .movieRowBullets {
+            opacity: 1;
         }
     }
 }
@@ -153,9 +193,71 @@
     opacity: 1;
 }
 
+// Arrows and Bullets
 @media (max-width: 760px) {
     .movieRowLeft,
     .movieRowRight {
         opacity: 1;
+    }
+
+    .movieRow .movieRowHeader .movieRowBullets {
+        display: none;
+    }
+}
+
+// Breakpoints Bullets
+@media (min-width: 800px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(9) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 890px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(8) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(7) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1140px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(6) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1330px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(5) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(4) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 2000px) {
+    .movieRow .movieRowHeader .movieRowBullets ul li {
+        &:nth-child(3) {
+            display: none;
+        }
     }
 }
