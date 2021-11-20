@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { HiChevronRight } from 'react-icons/hi';
