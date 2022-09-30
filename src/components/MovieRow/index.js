@@ -58,7 +58,7 @@ export default ({ title, items, onPreview }) => {
                         <div key={key} className={styles.movieRowItem} onClick={() => onPreview(item)}>
                             {
                                 item.poster_path != null ? (
-                                    <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
+                                    <img loading="lazy" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
                                 ) : (
                                     <div className={styles.movieRowItemError}>
                                         <div>
