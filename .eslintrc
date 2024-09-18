@@ -1,0 +1,20 @@
+{
+  "extends": "@rocketseat/eslint-config/react",
+  "rules": {
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "camelcase": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "semi": true,
+        "trailingComma": "all",
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "env": {
+    "commonjs": true
+  }
+}
