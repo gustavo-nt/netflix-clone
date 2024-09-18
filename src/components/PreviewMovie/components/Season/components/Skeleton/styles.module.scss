@@ -1,0 +1,136 @@
+@mixin skeleton-shimmer {
+  overflow: hidden;
+  position: relative;
+  background: var(--gray-400);
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 1.5s infinite;
+    transform: translateX(-100%);
+    inset: 0;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.skeleton {
+  display: flex;
+  cursor: pointer;
+  border-radius: 5px;
+  border-bottom: 1px solid var(--gray-500);
+  transition: background-color 0.3s ease-in-out;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  gap: 0;
+
+  &:hover {
+    background-color: var(--gray-450);
+  }
+
+  &:first-of-type {
+    border-top: 1px solid var(--gray-500);
+  }
+}
+
+.number {
+  flex: 0 0 7%;
+  display: flex;
+  justify-content: center;
+
+  span {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+
+    @include skeleton-shimmer;
+  }
+}
+
+.image {
+  flex: 0 0 18%;
+  border-radius: 5px;
+  aspect-ratio: 16 / 9;
+
+  @include skeleton-shimmer;
+}
+
+.details {
+  width: 100%;
+  flex: 0 0 70%;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem;
+
+    span {
+      width: 10%;
+      height: 1.1875rem;
+      border-radius: 4px;
+      padding-left: 0.625rem;
+
+      &:first-of-type {
+        width: 50%;
+        padding-left: 0;
+      }
+
+      @include skeleton-shimmer;
+    }
+  }
+}
+
+.description {
+  width: 100%;
+  padding: 0 1rem 1rem;
+
+  span {
+    width: 70%;
+    height: 1rem;
+    display: block;
+    border-radius: 4px;
+
+    &:first-of-type {
+      width: 100%;
+      margin-bottom: 0.4375rem;
+    }
+
+    @include skeleton-shimmer;
+  }
+}
+
+@media (max-width: 840px) {
+  .skeleton {
+    flex-direction: column;
+  }
+
+  .number {
+    display: none;
+  }
+
+  .details .info {
+    padding: 1rem 0 0.5rem;
+  }
+
+  .description {
+    padding: 0 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .skeleton {
+    padding: 1rem 0;
+  }
+}

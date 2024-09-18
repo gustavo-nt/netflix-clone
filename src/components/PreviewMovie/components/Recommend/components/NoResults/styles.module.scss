@@ -1,0 +1,26 @@
+.noRecommend {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column;
+
+  img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+      font-size: 1rem;
+    }
+
+    span {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+    }
+  }
+}

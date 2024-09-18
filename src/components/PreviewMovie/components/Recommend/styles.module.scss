@@ -1,0 +1,39 @@
+.recommend {
+  margin-top: 1.375rem;
+
+  .recommendContentHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > p {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.recommendContentList {
+  max-height: 100%;
+  margin-top: 1.25rem;
+
+  > div {
+    display: grid;
+    align-items: stretch;
+    justify-items: stretch;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .recommendContentList > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .recommendContentList > div {
+    grid-template-columns: 1fr;
+  }
+}

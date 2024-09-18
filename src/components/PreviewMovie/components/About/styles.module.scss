@@ -1,0 +1,39 @@
+.aboutWrapper {
+  margin-top: 48px;
+}
+
+.aboutHeader {
+  margin-bottom: 20px;
+
+  h3 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+    word-break: break-word;
+
+    &.maturity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .label {
+      color: var(--gray-400);
+    }
+
+    .tag {
+      margin: 0;
+      outline-color: var(--white);
+    }
+  }
+}

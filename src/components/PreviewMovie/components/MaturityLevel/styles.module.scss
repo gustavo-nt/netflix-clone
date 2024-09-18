@@ -1,0 +1,37 @@
+.maturity {
+  height: 28px;
+  display: flex;
+  padding: 0 0.5rem;
+  background-color: var(--green-700);
+  justify-content: center;
+  color: var(--white-200);
+  align-items: center;
+  border-radius: 4px;
+  width: auto;
+
+  &.undefined {
+    background-color: var(--white);
+    color: var(--gray-850);
+  }
+
+  &.child {
+    background-color: var(--blue-100);
+  }
+
+  &.preteen {
+    color: var(--black);
+    background-color: var(--yellow-150);
+  }
+
+  &.teenager {
+    background-color: var(--orange-400);
+  }
+
+  &.preadult {
+    background-color: var(--red-450);
+  }
+
+  &.adult {
+    background-color: var(--black-100);
+  }
+}

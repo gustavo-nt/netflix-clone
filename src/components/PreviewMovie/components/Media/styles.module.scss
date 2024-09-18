@@ -1,0 +1,29 @@
+.media {
+  aspect-ratio: 16 / 9;
+
+  img {
+    width: 100%;
+  }
+
+  .iframe {
+    transform: scale(1.35);
+  }
+
+  .onLoad {
+    width: 100%;
+    height: 25rem;
+    position: relative;
+  }
+}
+
+@media (max-width: 600px) {
+  .media .onLoad {
+    height: 18.75rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .media .onLoad {
+    height: 13.5rem;
+  }
+}
