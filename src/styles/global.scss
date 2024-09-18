@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --white: #fff;
+  --white-200: #fffefd;
+
+  --black: #000;
+  --black-100: #131111;
+
+  --gray-200: #d2d2d2;
+  --gray-250: #999999;
+  --gray-300: #808080;
+  --gray-400: #777777;
+  --gray-450: #333333;
+  --gray-500: #404040;
+  --gray-550: #2f2f2f;
+  --gray-600: #252121;
+  --gray-800: #141414;
+  --gray-850: #181818;
+  --gray-900: #111111;
+
+  --red-100: #ff4800;
+  --red-150: #f84006;
+  --red-200: #fd0100;
+  --red-300: #ff0036;
+  --red-400: #f30b34;
+  --red-450: #d7262d;
+  --red-500: #ec0014;
+  --red-550: #e40913;
+  --red-600: #ff0100;
+
+  --orange-100: #ff9600;
+  --orange-400: #e7792b;
+
+  --yellow-100: #ffde01;
+  --yellow-150: #f7c727;
+  --yellow-200: #ffc601;
+  --yellow-300: #ffae01;
+
+  --pink-200: #ff00bf;
+  --pink-300: #ff00cc;
+
+  --purple-300: #a201ff;
+  --purple-400: #a601f4;
+
+  --green-200: #06f98c;
+  --green-300: #04fd8f;
+  --green-500: #46d369;
+  --green-700: #009c4c;
+
+  --blue-100: #2e88bd;
+  --blue-200: #0080ff;
+  --blue-300: #0084ff;
+  --blue-400: #0078fe;
+
+  --aliceblue-100: #01ffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--gray-900);
+}
+
+body,
+input,
+textarea,
+button {
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+@media (min-width: 760px) {
+  body {
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--gray-900);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: var(--gray-450);
+      border: 4px solid var(--gray-900);
+    }
+  }
+}
