@@ -1,0 +1,86 @@
+@mixin skeleton-shimmer {
+  overflow: hidden;
+  position: relative;
+  background: var(--gray-400);
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 1.5s infinite;
+    transform: translateX(-100%);
+    inset: 0;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.cardContainer {
+  width: 12.5rem;
+  position: relative;
+  display: inline-block;
+  height: 18.75rem;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 18.75rem;
+    border-radius: 8px;
+    transform: scale(0.95);
+    transition: all ease 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .error {
+    width: 100%;
+    position: absolute;
+    transform: translateX(-50%) scale(0.95);
+    transition: all ease 0.2s;
+    left: 50%;
+    top: 40%;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        max-width: 80%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 0.3125rem;
+        font-size: 1.0625rem;
+        overflow: hidden;
+      }
+
+      svg {
+        font-size: 3.125rem;
+      }
+    }
+
+    &:hover {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+}
+
+.skeleton {
+  border-radius: 8px;
+  transform: scale(0.95);
+  padding-top: calc(3 / 2 * 100%);
+
+  @include skeleton-shimmer;
+}
