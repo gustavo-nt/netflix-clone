@@ -1,263 +1,168 @@
 .movieRow {
-    position: relative;
-    margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 1.875rem;
 
-    h2 {
-        margin: 0px 0px 0px 35px;
-        display: block;
-        display: -webkit-box;
-        max-width: 100%;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+  h2 {
+    margin: 0;
+    display: block;
+    -webkit-line-clamp: 1;
+    margin-left: 2.1875rem;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    max-width: 100%;
+  }
 
-    .movieRowHeader {
+  .movieRowHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .movieRowTitle {
+      display: flex;
+      align-items: center;
+      max-width: fit-content;
+
+      .movieRowMore {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        position: relative;
 
-        .movieRowTitle {
-            display: flex;
-            align-items: center;
-            max-width: fit-content;
-    
-            .movieRowMore {
-                display: flex;
-                align-items: center;
-                position: relative;
-    
-                span {
-                    margin-left: 10px;
-                    margin-top: 3px;
-                    font-size: 12px;
-                    font-weight: bold;
-                    white-space: nowrap;
-                    opacity: 0;
-                    transition: all .2s ease;
-                }
-    
-                svg {
-                    position: absolute;
-                    font-size: 25px;
-                    cursor: pointer;
-                    margin-top: 2px;
-                    opacity: 0;
-                    transition: all .2s ease;
-                }
-            }
-    
-            &:hover {
-                .movieRowMore svg {
-                    transform: translateX(55px);
-    
-                    ~ span {
-                        opacity: 1;  
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-
-        .movieRowBullets {
-            display: flex;
-            align-items: center;
-            margin-right: 35px;
-            opacity: 0;
-            transition: all .2s ease;
-
-            ul {
-                list-style-type: none;
-                margin-top: 4px;
-
-                li {
-                    display: inline-block;
-                    width: 14px;
-                    height: 3px;
-                    background-color: #4d4d4d;
-                    margin-left: 1px;
-                    cursor: pointer;
-
-                    &:active {
-                        background-color: #aaa;
-                    }
-
-                    &:hover {
-                        background-color: #aaa;
-                    }
-                } 
-            }
-        }
-    }
-
-    &:hover {
-        .movieRowHeader .movieRowMore svg {
-            opacity: 1; 
-        }
-
-        .movieRowHeader .movieRowBullets {
-            opacity: 1;
-        }
-    }
-}
-
-.movieRowListArea {
-    overflow-x: hidden;
-    padding: 9px 0px 5px 30px;
-    padding-left: 30px;
-}
-
-.movieRowList {
-    transition: all ease .5s;
-}
-
-.movieRowItem {
-    display: inline-block;
-    width: 200px;
-    height: 300px;
-    position: relative;
-    cursor: pointer;
-
-    img {
-        width: 100%;
-        height: 300px;
-        border-radius: 8px;
-        transform: scale(0.95);
-        transition: all ease 0.2s;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-}
-
-.movieRowItemError {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%) scale(0.95);
-    transition: all ease 0.2s;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        p {
-            white-space: nowrap;
-            font-size: 17px;
-            margin-bottom: 5px;
-            max-width: 74%;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        span {
+          opacity: 0;
+          white-space: nowrap;
+          margin-left: 0.625rem;
+          transition: all 0.2s ease;
+          margin-top: 0.1875rem;
+          font-size: 0.75rem;
+          font-weight: bold;
         }
 
         svg {
-            font-size: 50px;
+          cursor: pointer;
+          margin-top: 0.125rem;
+          transition: all 0.2s ease;
+          font-size: 1.5625rem;
+          position: absolute;
+          opacity: 0;
         }
+      }
+
+      &:hover {
+        .movieRowMore svg {
+          transform: translateX(3.4375rem);
+
+          ~ span {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
     }
+  }
+
+  &:hover {
+    .movieRowHeader .movieRowMore svg {
+      opacity: 1;
+    }
+  }
+}
+
+.movieRowListArea {
+  overflow-x: hidden;
+  padding: 0.5625rem 0 0.3125rem 1.875rem;
+  padding-left: 1.875rem;
+}
+
+.movieRowList {
+  transition: all ease 0.5s;
+}
+
+.movieRowItem {
+  width: 12.5rem;
+  position: relative;
+  display: inline-block;
+  height: 18.75rem;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 18.75rem;
+    border-radius: 8px;
+    transform: scale(0.95);
+    transition: all ease 0.2s;
 
     &:hover {
-        transform: translateX(-50%) scale(1);
+      transform: scale(1.05);
     }
+  }
+}
+
+.movieRowItemError {
+  position: absolute;
+  transition: all ease 0.2s;
+  transform: translateX(-50%) scale(0.95);
+  left: 50%;
+  top: 40%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      max-width: 74%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: 0.3125rem;
+      font-size: 1.0625rem;
+      overflow: hidden;
+    }
+
+    svg {
+      font-size: 3.125rem;
+    }
+  }
+
+  &:hover {
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 .movieRowLeft,
 .movieRowRight {
-    position: absolute;
-    top: 45px;
-    width: 40px;
-    height: 285px;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-    transition: all ease .5s;
+  z-index: 99;
+  display: flex;
+  height: 17.8125rem;
+  position: absolute;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all ease 0.5s;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  width: 2.5rem;
+  opacity: 0;
+  top: 45px;
 }
 
 .movieRowLeft {
-    left: 0;
+  left: 0;
 }
 
 .movieRowRight {
-    right: 0;
+  right: 0;
 }
 
 .movieRow:hover .movieRowLeft,
 .movieRow:hover .movieRowRight {
-    opacity: 1;
+  opacity: 1;
 }
 
-// Arrows and Bullets
 @media (max-width: 760px) {
-    .movieRowLeft,
-    .movieRowRight {
-        opacity: 1;
-    }
-
-    .movieRow .movieRowHeader .movieRowBullets {
-        display: none;
-    }
-}
-
-// Breakpoints Bullets
-@media (min-width: 800px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(9) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 890px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(8) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 1000px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(7) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 1140px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(6) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 1330px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(5) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 1600px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(4) {
-            display: none;
-        }
-    }
-}
-
-@media (min-width: 2000px) {
-    .movieRow .movieRowHeader .movieRowBullets ul li {
-        &:nth-child(3) {
-            display: none;
-        }
-    }
+  .movieRowLeft,
+  .movieRowRight {
+    opacity: 1;
+  }
 }
