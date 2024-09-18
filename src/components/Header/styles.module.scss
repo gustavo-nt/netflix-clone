@@ -1,128 +1,114 @@
 .header {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
+  display: flex;
+  position: fixed;
+  height: 4.375rem;
+  align-items: center;
+  background: transparent;
+  justify-content: space-between;
+  transition: all ease 0.5s;
+  padding: 0 1.875rem;
+  z-index: 999;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  .headerMenu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
-    background: transparent;
-    transition: all ease 0.5s;
 
-    &.black {
-        background: #141414;
+    .headerLogo {
+      line-height: 0;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        max-height: 1.5625rem;
+      }
     }
 
-    .headerMenu {
-        display: flex;
-        align-items: center;
+    ul {
+      display: flex;
+      align-items: center;
+      margin-left: 1.625rem;
+      font-size: 0.9375rem;
 
-        .headerLogo {
-            height: 25px;
-            cursor: pointer;
-    
-            img {
-                height: 100%;
-            }
+      li {
+        margin: 0 0.625rem;
+        transition: all 0.2s ease;
+        list-style: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
         }
+      }
 
-        ul {
-            display: flex;
-            align-items: center;
-            margin-left: 25px;
-            font-size: 15px;
+      :first-child {
+        display: none;
+      }
+    }
+  }
 
-            li {
-                margin: 0 10px;
-                transition: all .2s ease;
-                cursor: pointer;
-                list-style: none;
+  .headerContent {
+    display: flex;
+    align-items: center;
 
-                &:hover {
-                    opacity: 0.8;
-                }
-            }
+    .headerActions {
+      display: flex;
+      align-items: center;
+      color: var(--white);
 
-            :first-child {
-                display: none;
-            }
-        }
+      svg {
+        cursor: pointer;
+        margin: 0 0.625rem;
+        font-size: 1.25rem;
+      }
+
+      :first-child {
+        margin-left: 0;
+      }
     }
 
-    .headerContainerUser {
-        display: flex;
-        align-items: center;
+    .headerUser {
+      height: 2.1875rem;
+      margin-left: 0.625rem;
+      cursor: pointer;
 
-        .headerIcons {
-            color: white;
-            margin-top: 5px;
-
-            svg {
-                margin: 0 10px;
-                font-size: 20px;
-                cursor: pointer;
-            }
-
-            :first-child {
-                margin-left: 0;
-            }
-        }
-
-        .headerUser {
-            height: 35px;
-            margin-left: 10px;
-            cursor: pointer;
-
-            img {
-                height: 100%;
-                border-radius: 5px;
-            }
-        }
+      img {
+        height: 100%;
+        border-radius: 5px;
+      }
     }
+  }
 }
 
 @media (max-width: 725px) {
-    .header .headerMenu ul {
-        margin-left: 15px;
+  .header .headerMenu ul {
+    margin-left: 1rem;
 
-        li {
-            display: none;
-        }
-
-        :first-child {
-            display: flex;
-            align-items: center;
-    
-            &:after {
-                content: '';
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 5px 5px 0 5px;
-                border-color: #fff transparent transparent transparent;
-                margin-left: 5px;
-            }
-        }
+    li {
+      display: none;
     }
+
+    :first-child {
+      display: flex;
+      align-items: center;
+
+      &:after {
+        content: "";
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: var(--white) transparent transparent transparent;
+        margin-left: 0.375rem;
+        height: 0;
+        width: 0;
+      }
+    }
+  }
 }
 
 @media (max-width: 455px) {
-    .header .headerContainerUser .headerIcons svg {
-        margin: 0 7px;
-    }
-}
-
-@media (max-width: 420px) {
-    .header .headerContainerUser .headerIcons {
-        svg {
-            display: none;
-        }
-
-        :first-child {
-            display: block;
-        }
-    }
+  .header .headerContent .headerActions svg {
+    margin: 0 0.5rem;
+  }
 }
