@@ -15,7 +15,7 @@ export namespace PreviewMovieProps {
   export type Episode = {
     id: number;
     name: string;
-    runtime: number;
+    runtime?: number;
     air_date: string;
     overview: string;
     still_path: string;
