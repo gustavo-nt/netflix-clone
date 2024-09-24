@@ -34,7 +34,6 @@ const config: Config = {
     "src/reducers/",
     "src/services/",
     "src/tests/",
-    "src/utils/",
   ],
 
   // Indicates which provider should be used to instrument code for coverage
