@@ -4,7 +4,7 @@ import { usePreview } from "./usePreview";
 
 const setAttributeMockFn = jest.fn();
 
-describe("usePreviewMovie hook", () => {
+describe("usePreview hook", () => {
   it("should set data-overflow attribute to true when overview text overflows", () => {
     jest.spyOn(React, "useRef").mockReturnValueOnce({
       current: {
