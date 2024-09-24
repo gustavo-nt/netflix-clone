@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "jest --watchAll"
+    "test": "jest"
   },
   "dependencies": {
     "@rocketseat/eslint-config": "^1.1.3",
