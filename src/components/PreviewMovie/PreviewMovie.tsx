@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { enableBodyScroll } from "body-scroll-lock";
+import { Hide } from "../../directives/Hide";
+import { Show } from "../../directives/Show";
 
 import { About } from "./components/About";
 import { Media } from "./components/Media";
@@ -19,13 +19,11 @@ import { BsPlayFill, BsPlus } from "react-icons/bs";
 import { ReactComponent as SoundOn } from "../../assets/icons/sound-on.svg";
 import { ReactComponent as SoundOff } from "../../assets/icons/sound-off.svg";
 
+import { usePreview } from "./utils/usePreview";
 import { getFullYear } from "../../utils/getFullYear";
 
 import styles from "./styles.module.scss";
 import { PreviewMovieProps } from "./types";
-
-import { Hide } from "../../directives/Hide";
-import { Show } from "../../directives/Show";
 
 export const PreviewMovie = (item: PreviewMovieProps.Default) => {
   const {
@@ -50,31 +48,8 @@ export const PreviewMovie = (item: PreviewMovieProps.Default) => {
     crew,
   } = item;
 
-  const overviewEl = useRef<HTMLParagraphElement>(null);
-
-  const [visibleModal, setVisibleModal] = useState<boolean>(true);
-  const [soundReleased, setSoundReleased] = useState<boolean>(false);
-
-  const onClose = () => {
-    setVisibleModal(false);
-    !openedSearch && enableBodyScroll(document.querySelector("body")!);
-  };
-
-  const onHandleSound = () => {
-    setSoundReleased((prevState) => !prevState);
-  };
-
-  useEffect(() => {
-    if (
-      overviewEl?.current &&
-      overviewEl?.current.offsetHeight < overviewEl?.current.scrollHeight
-    ) {
-      (overviewEl.current.parentNode as Element).setAttribute(
-        "data-overflow",
-        "true",
-      );
-    }
-  }, [overview]);
+  const { visibleModal, onClose, soundReleased, onHandleSound, overviewEl } =
+    usePreview({ openedSearch });
 
   return (
     <Show when={visibleModal}>
@@ -193,7 +168,7 @@ export const PreviewMovie = (item: PreviewMovieProps.Default) => {
                 {() => (
                   <Season
                     id={id}
-                    episodes={season?.episodes}
+                    episodes={season.episodes}
                     numberOfSeasons={number_of_seasons}
                   />
                 )}
