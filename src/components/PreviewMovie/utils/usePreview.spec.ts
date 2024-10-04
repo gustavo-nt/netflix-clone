@@ -19,4 +19,11 @@ describe("usePreview hook", () => {
     renderHook(() => usePreview({ openedSearch: false }));
     expect(setAttributeMockFn).toHaveBeenCalledWith("data-overflow", "true");
   });
+
+  it("should not able to call setAttributeFn when ref is null", () => {
+    jest.spyOn(React, "useRef").mockReturnValueOnce(null as any);
+
+    renderHook(() => usePreview({ openedSearch: false }));
+    expect(setAttributeMockFn).not.toHaveBeenCalled();
+  });
 });
