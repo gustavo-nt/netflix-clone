@@ -1,4 +1,4 @@
-import { render, RenderOptions } from "@testing-library/react";
+import { render, renderHook, RenderOptions } from "@testing-library/react";
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../services/queryClient";
@@ -14,4 +14,15 @@ const customRender = (
     ...options,
   });
 
-export { customRender as render };
+const customRenderHook = (
+  ui: () => void,
+  options?: Omit<RenderOptions, "wrapper">,
+) =>
+  renderHook(ui, {
+    wrapper: ({ children }) => (
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    ),
+    ...options,
+  });
+
+export { customRender as render, customRenderHook as renderHook };
