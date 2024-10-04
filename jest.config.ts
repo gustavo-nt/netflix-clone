@@ -32,6 +32,7 @@ const config: Config = {
     "src/utils",
     "src/context/",
     "src/reducers/",
+    "src/directives/",
     "src/services/",
     "src/tests/",
   ],
