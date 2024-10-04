@@ -5,17 +5,7 @@ type UsePreviewProps = {
   openedSearch?: boolean;
 };
 
-type UsePreviewReturn = {
-  visibleModal: boolean;
-  soundReleased: boolean;
-  overviewEl: React.RefObject<HTMLParagraphElement>;
-  onHandleSound: () => void;
-  onClose: () => void;
-};
-
-export const usePreview = ({
-  openedSearch,
-}: UsePreviewProps): UsePreviewReturn => {
+export const usePreview = ({ openedSearch }: UsePreviewProps) => {
   const overviewEl = useRef<HTMLParagraphElement>(null);
 
   const [visibleModal, setVisibleModal] = useState<boolean>(true);
@@ -31,14 +21,14 @@ export const usePreview = ({
   };
 
   useEffect(() => {
-    if (
-      overviewEl?.current &&
-      overviewEl?.current.offsetHeight < overviewEl?.current.scrollHeight
-    ) {
-      (overviewEl.current.parentNode as Element).setAttribute(
-        "data-overflow",
-        "true",
-      );
+    const element = overviewEl?.current;
+
+    if (element) {
+      const { offsetHeight, scrollHeight } = element;
+
+      if (offsetHeight < scrollHeight) {
+        (element.parentNode as Element).setAttribute("data-overflow", "true");
+      }
     }
   }, []);
 
