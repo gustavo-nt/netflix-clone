@@ -1,6 +1,8 @@
 import { MaturityLevel } from "../MaturityLevel";
 import { Show } from "../../../../directives/Show";
 
+import { useAbout } from "./hooks/useAbout";
+
 import styles from "./styles.module.scss";
 import { PreviewMovieProps } from "../../types";
 
@@ -12,11 +14,7 @@ export const About = ({
   companies,
   contentRatings,
 }: PreviewMovieProps.About) => {
-  const directors = crew.filter(
-    ({ job }) => job === "Director" || job === "Producer",
-  );
-
-  const writers = crew.filter(({ job }) => job === "Writer");
+  const { directors, writers } = useAbout({ crew });
 
   return (
     <div className={styles.aboutWrapper}>
@@ -27,7 +25,7 @@ export const About = ({
       </div>
 
       <div className={styles.aboutContainer}>
-        <Show when={companies.length > 0}>
+        <Show when={directors.length > 0}>
           <div className={styles.item}>
             <span className={styles.label}>Direção: </span>
 
