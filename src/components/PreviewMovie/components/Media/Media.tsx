@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import YouTube, { YouTubeProps } from "react-youtube";
+import YouTube from "react-youtube";
 
 import { Show } from "../../../../directives/Show";
 import { Hide } from "../../../../directives/Hide";
 
 import { CircularProgress } from "../../../Loading/CircularProgress";
 import BackError from "../../../../assets/error-back.png";
+
+import { useMedia } from "./hooks/useMedia";
 
 import styles from "./styles.module.scss";
 import { PreviewMovieProps } from "../../types";
@@ -16,31 +17,15 @@ export const Media = ({
   backdropPath,
   soundReleased,
 }: PreviewMovieProps.Media) => {
-  const [isVisibleVideo, setIsVisibleVideo] = useState<boolean>(false);
-  const [loadedMain, setLoadedMain] = useState<boolean>(false);
-
-  const soundElement = useRef<YouTube | null>(null);
-
-  useEffect(() => {
-    if (isVisibleVideo && soundElement.current) {
-      !soundReleased
-        ? soundElement.current.getInternalPlayer().mute()
-        : soundElement.current.getInternalPlayer().unMute();
-    }
-  }, [isVisibleVideo, soundReleased]);
-
-  const onPlayerReady: YouTubeProps["onReady"] = () => {
-    setIsVisibleVideo(true);
-  };
-
-  const onPlayerEnd: YouTubeProps["onEnd"] = (event) => {
-    setIsVisibleVideo(false);
-    event.target.destroy();
-  };
-
-  const onPlayerError: YouTubeProps["onError"] = () => {
-    setIsVisibleVideo(false);
-  };
+  const {
+    loadedMain,
+    onPlayerReady,
+    onPlayerError,
+    isVisibleVideo,
+    onHideLoading,
+    soundElement,
+    onPlayerEnd,
+  } = useMedia({ soundReleased });
 
   return (
     <div className={styles.media}>
@@ -82,7 +67,7 @@ export const Media = ({
         <img
           style={loadedMain ? {} : { display: "none" }}
           src={`https://image.tmdb.org/t/p/original${backdropPath}`}
-          onLoad={() => setLoadedMain(true)}
+          onLoad={onHideLoading}
           alt={title}
         />
       </Show>
