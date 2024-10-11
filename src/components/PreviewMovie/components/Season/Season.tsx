@@ -1,13 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { useState, useLayoutEffect } from "react";
-
 import { Show } from "../../../../directives/Show";
 import { Hide } from "../../../../directives/Hide";
 
 import { Card } from "./components/Card";
 import { Skeleton } from "./components/Skeleton";
 
-import api from "../../../../services/api";
+import { useSeason } from "./hooks/useSeason";
 
 import styles from "./styles.module.scss";
 import { PreviewMovieProps } from "../../types";
@@ -17,30 +14,10 @@ export const Season = ({
   episodes,
   numberOfSeasons,
 }: PreviewMovieProps.Season) => {
-  const [episodesSeason, setEpisodesSeason] =
-    useState<PreviewMovieProps.Episode[]>(episodes);
-
-  const [numberSeason, setNumberSeason] = useState<number>(0);
-
-  const { isLoading, data } = useQuery({
-    queryKey: ["seasonData", numberSeason, id],
-    queryFn: async () => {
-      const { data } = await api.get(`tv/${id}/season/${numberSeason}`);
-
-      return data;
-    },
-    enabled: !!numberSeason,
+  const { episodesSeason, isLoading, numberSeason, handleSeason } = useSeason({
+    episodes,
+    id,
   });
-
-  const onHandleSeason = (value: number) => {
-    setNumberSeason(value);
-  };
-
-  useLayoutEffect(() => {
-    if (data) {
-      setEpisodesSeason(data.episodes);
-    }
-  }, [data]);
 
   return (
     <div className={styles.season}>
@@ -50,7 +27,7 @@ export const Season = ({
         <Show when={!!numberOfSeasons && numberOfSeasons > 1}>
           <select
             role="select"
-            onChange={(e) => onHandleSeason(Number(e.target.value))}
+            onChange={(e) => handleSeason(Number(e.target.value))}
           >
             {new Array(numberOfSeasons).fill("").map((_item, index) => (
               <option key={index} value={index + 1}>
@@ -71,7 +48,7 @@ export const Season = ({
         <Hide when={isLoading && !!numberSeason}>
           <Show when={episodesSeason.length > 0}>
             {episodesSeason.map((value) => (
-              <Card key={value.id} item={value} role="card" />
+              <Card key={value.id} item={value} />
             ))}
           </Show>
 
