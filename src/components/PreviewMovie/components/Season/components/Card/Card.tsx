@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { CircularProgress } from "../../../../../Loading/CircularProgress";
 
 import { Hide } from "../../../../../../directives/Hide";
 import { Show } from "../../../../../../directives/Show";
+
+import { useCard } from "./hooks/useCard";
 
 import BackError from "../../../../../../assets/error-back.png";
 import { ReactComponent as Player } from "../../../../../../assets/icons/player.svg";
@@ -10,11 +11,11 @@ import { ReactComponent as Player } from "../../../../../../assets/icons/player.
 import { SeasonProps } from "../../types";
 import styles from "./styles.module.scss";
 
-export const Card = ({ item, role }: SeasonProps.Card) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+export const Card = ({ item }: SeasonProps.Card) => {
+  const { isLoading, onHideLoading } = useCard();
 
   return (
-    <div className={styles.episodeCard} role={role}>
+    <div className={styles.episodeCard} role="card">
       <div className={styles.episodeNumber}>
         <span>{item.episode_number}</span>
       </div>
@@ -35,7 +36,7 @@ export const Card = ({ item, role }: SeasonProps.Card) => {
           <img
             src={`https://image.tmdb.org/t/p/original${item.still_path}`}
             style={!isLoading ? {} : { display: "none" }}
-            onLoad={() => setIsLoading(false)}
+            onLoad={onHideLoading}
             alt={item.name}
           />
         </Show>
