@@ -14,8 +14,8 @@ const customRender = (
     ...options,
   });
 
-const customRenderHook = (
-  ui: () => void,
+const customRenderHook = <T extends unknown>(
+  ui: () => T,
   options?: Omit<RenderOptions, "wrapper">,
 ) =>
   renderHook(ui, {
