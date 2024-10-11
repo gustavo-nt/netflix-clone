@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { Card } from "../Card";
 
 import { HiChevronRight } from "react-icons/hi";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
+import { useMovieRow } from "./hooks/useMovieRow";
 
 import styles from "./styles.module.scss";
 import { MovieRowProps } from "./types";
@@ -12,28 +13,7 @@ export const MovieRow = ({
   onOpenDetails,
   items,
 }: MovieRowProps.Default) => {
-  const [scrollX, setScrollX] = useState<number>(0);
-
-  const handleLeftArrow = () => {
-    let x = scrollX + Math.round(window.innerWidth / 2);
-
-    if (x > 0) {
-      x = 0;
-    }
-
-    setScrollX(x);
-  };
-
-  const handleRightArrow = () => {
-    let x = scrollX - Math.round(window.innerWidth / 2);
-    const listW = items.length * 200;
-
-    if (window.innerWidth - listW > x) {
-      x = window.innerWidth - listW - 60;
-    }
-
-    setScrollX(x);
-  };
+  const { scrollX, handleLeftArrow, handleRightArrow } = useMovieRow({ items });
 
   return (
     <div className={styles.movieRow}>
