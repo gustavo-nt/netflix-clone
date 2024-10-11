@@ -27,20 +27,23 @@
 🚧  Finalizado  🚧
 </h3>
 
-### 📎 Features 
+### 📎 Features
 
 - [x] Filme Destaque
 - [x] Filmes Originais Netflix
 - [x] Filmes divididos em categorias: romance, ação, etc
 - [x] Setas de rolagem da lista
 - [x] Preview do título selecionado
+- [x] Trailer do filme/série
 - [x] Recomendações de filmes/séries
+- [x] Resultado de pesquisa
 
 ### 💻 Projeto
 
-UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database. Esse Projeto foi desenvolvido durante a live ministrada pelo professor Boenick Lacerda. 
+UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The Movie Database (TMDB).
 
 ### ✅ Demonstração
+
 <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/public/github/featured_movie.png" />
 <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/public/github/preview_movie.png" />
 <img src="https://github.com/gustavo-nt/netflix-clone/blob/master/public/github/movie_rows.png" />
@@ -48,7 +51,7 @@ UI Clone do serviço de streaming - Netflix, com o uso da API fornecida pelo The
 ### ⚙ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e/ou [Yarn](https://yarnpkg.com/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e/ou [Yarn](https://yarnpkg.com/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 📗 Rodando a Aplicação (web)
@@ -69,8 +72,8 @@ $ yarn ou npm start
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - ReactJS
-- Javascript
-- Next.js
+- Typescript
+- Vite
 
 ### 📕 Bibliotecas
 
@@ -80,7 +83,9 @@ Esse projeto foi utilizou das seguintes lib e/ou pré-processadores:
 - react-icons
 - tmdb
 - sass
-- next-images
+- jest
+- date-fns
+- react-query
 - babel-plugin-inline-react-svg
 
 ### ⚖ Direitos
