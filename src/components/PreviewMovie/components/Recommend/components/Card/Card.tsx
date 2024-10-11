@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import { Show } from "../../../../../../directives/Show";
 import { Hide } from "../../../../../../directives/Hide";
 
 import { CircularProgress } from "../../../../../Loading/CircularProgress";
-import { usePreview } from "../../../../../../context/PreviewContext";
+import { useCard } from "./hooks/useCard";
 
 import { BsPlus } from "react-icons/bs";
 import BackError from "../../../../../../assets/error-back.png";
@@ -16,16 +14,7 @@ import styles from "./styles.module.scss";
 import { RecommendProps } from "../../types";
 
 export const Card = ({ item, idParent }: RecommendProps.Card) => {
-  const { onUpdatePreview } = usePreview();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const onHandlePreview = (item: RecommendProps.HandlePreview) => {
-    onUpdatePreview({
-      id: item.id,
-      title: item.title,
-      media_type: item.media_type,
-    });
-  };
+  const { onHandlePreview, onHideLoading, isLoading } = useCard();
 
   return (
     <div
@@ -47,7 +36,7 @@ export const Card = ({ item, idParent }: RecommendProps.Card) => {
           <img
             style={!isLoading ? {} : { display: "none" }}
             src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-            onLoad={() => setIsLoading(false)}
+            onLoad={onHideLoading}
             alt={item.title}
           />
         </Show>
