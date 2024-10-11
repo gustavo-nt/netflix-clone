@@ -36,7 +36,7 @@
 - [x] Preview do título selecionado
 - [x] Trailer do filme/série
 - [x] Recomendações de filmes/séries
-- [x] Resultado de pesquisa
+- [x] Busca de Resultados
 
 ### 💻 Projeto
 
