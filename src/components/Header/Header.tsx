@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-
 import { Search } from "./components/Search";
+
 import { useSearch } from "../../context/SearchContext";
+import { useHeader } from "./hooks/useHeader";
 
 import { FaBell } from "react-icons/fa";
 
@@ -12,20 +12,8 @@ import { staticLinksHeader } from "./utils/getStaticLinks";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
+  const { blackHeader } = useHeader();
   const { openSearchBox } = useSearch();
-  const [blackHeader, setBlackHeader] = useState(false);
-
-  useEffect(() => {
-    const scrollListener = () => {
-      window.scrollY > 10 ? setBlackHeader(true) : setBlackHeader(false);
-    };
-
-    window.addEventListener("scroll", scrollListener);
-
-    return () => {
-      window.removeEventListener("scroll", scrollListener);
-    };
-  }, []);
 
   return (
     <header
