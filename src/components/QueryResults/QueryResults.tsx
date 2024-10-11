@@ -5,7 +5,7 @@ import { Card } from "../Card";
 import { Show } from "../../directives/Show";
 
 import { useSearch } from "../../context/SearchContext";
-import { useQuery } from "./utils/useQuery";
+import { useQuery } from "./hooks/useQuery";
 
 import styles from "./styles.module.scss";
 import { QueryResultsProps } from "./types";
