@@ -19,7 +19,7 @@ import { BsPlayFill, BsPlus } from "react-icons/bs";
 import { ReactComponent as SoundOn } from "../../assets/icons/sound-on.svg";
 import { ReactComponent as SoundOff } from "../../assets/icons/sound-off.svg";
 
-import { usePreview } from "./utils/usePreview";
+import { usePreviewMovie } from "./hooks/usePreviewMovie";
 import { getFullYear } from "../../utils/getFullYear";
 
 import styles from "./styles.module.scss";
@@ -49,7 +49,7 @@ export const PreviewMovie = (item: PreviewMovieProps.Default) => {
   } = item;
 
   const { visibleModal, onClose, soundReleased, onHandleSound, overviewEl } =
-    usePreview({ openedSearch });
+    usePreviewMovie({ openedSearch });
 
   return (
     <Show when={visibleModal}>

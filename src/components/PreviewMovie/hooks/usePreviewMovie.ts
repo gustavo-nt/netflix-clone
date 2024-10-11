@@ -5,7 +5,7 @@ type UsePreviewProps = {
   openedSearch?: boolean;
 };
 
-export const usePreview = ({ openedSearch }: UsePreviewProps) => {
+export const usePreviewMovie = ({ openedSearch }: UsePreviewProps) => {
   const overviewEl = useRef<HTMLParagraphElement>(null);
 
   const [visibleModal, setVisibleModal] = useState<boolean>(true);

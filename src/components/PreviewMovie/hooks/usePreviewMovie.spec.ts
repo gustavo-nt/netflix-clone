@@ -1,10 +1,10 @@
 import React from "react";
 import { renderHook } from "@testing-library/react";
-import { usePreview } from "./usePreview";
+import { usePreviewMovie } from "./usePreviewMovie";
 
 const setAttributeMockFn = jest.fn();
 
-describe("usePreview hook", () => {
+describe("usePreviewMovie hook", () => {
   it("should set data-overflow attribute to true when overview text overflows", () => {
     jest.spyOn(React, "useRef").mockReturnValueOnce({
       current: {
@@ -16,14 +16,14 @@ describe("usePreview hook", () => {
       },
     });
 
-    renderHook(() => usePreview({ openedSearch: false }));
+    renderHook(() => usePreviewMovie({ openedSearch: false }));
     expect(setAttributeMockFn).toHaveBeenCalledWith("data-overflow", "true");
   });
 
   it("should not able to call setAttributeFn when ref is null", () => {
     jest.spyOn(React, "useRef").mockReturnValueOnce(null as any);
 
-    renderHook(() => usePreview({ openedSearch: false }));
+    renderHook(() => usePreviewMovie({ openedSearch: false }));
     expect(setAttributeMockFn).not.toHaveBeenCalled();
   });
 });
